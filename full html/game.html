@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Turtle Collector — Mini JS Game</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --bg:#aee7d8;
+      --panel:#ffffffcc;
+      --accent:#2b8a7d;
+      --danger:#e05252;
+      --muted:#456;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;}
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      background: linear-gradient(180deg,var(--bg), #88d0b8);
+    }
+    .card{
+      width:820px;
+      max-width:95vw;
+      background:var(--panel);
+      border-radius:12px;
+      box-shadow:0 8px 30px rgba(20,20,40,0.12);
+      overflow:hidden;
+      display:flex;
+      gap:0;
+    }
+    canvas{
+      background: linear-gradient(#b7f3dd,#8ee0c3);
+      display:block;
+    }
+    .sidebar{
+      width:300px;
+      min-width:220px;
+      padding:18px;
+      box-sizing:border-box;
+      background:linear-gradient(#ffffffee,#f7fff9);
+      border-left:1px solid rgba(0,0,0,0.04);
+    }
+    h1{margin:0 0 12px 0; font-size:18px; color:var(--muted);}
+    .stats{margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;}
+    .stat{background:#fff;border-radius:8px;padding:8px 10px;box-shadow:0 3px 8px rgba(0,0,0,0.04);font-weight:600;}
+    .controls{margin-top:12px;font-size:13px;color:#333;}
+    .controls p{margin:6px 0;}
+    button{
+      display:inline-block;
+      border:0;
+      background:var(--accent);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      margin-top:12px;
+    }
+    .muted{color:#666;font-size:13px;margin-top:6px;}
+    .footer{font-size:12px;color:#555;margin-top:14px;}
+    .center{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100%;
+      width:520px;
+    }
+    @media (max-width:760px){
+      .card{flex-direction:column;}
+      .center{width:100%}
+      .sidebar{width:100%; border-left:none; border-top:1px solid rgba(0,0,0,0.04)}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="application" aria-label="Turtle Collector game">
+      <div class="center">
+        <canvas id="game" width="520" height="520"></canvas>
+      </div>
+
+      <div class="sidebar" aria-hidden="false">
+        <h1>Turtle Collector</h1>
+        <div class="stats">
+          <div class="stat" id="score">Score: 0</div>
+          <div class="stat" id="lives">Lives: 3</div>
+          <div class="stat" id="time">Time: 0s</div>
+        </div>
+
+        <div class="controls">
+          <p><strong>How to play</strong></p>
+          <p>Use ↑ ↓ ← → or W A S D to move the turtle.</p>
+          <p>Collect stars to score points. Avoid crabs (enemies).</p>
+          <p>Collecting a star spawns a new one. Survive as long as you can!</p>
+        </div>
+
+        <div>
+          <button id="startBtn">Start / Restart</button>
+          <div class="muted">Press <kbd>Space</kbd> to pause/resume during play.</div>
+        </div>
+
+        <div class="footer">
+          <div style="margin-top:12px"><strong>Tips:</strong> Move smoothly, don't touch crabs. Update difficulty = more crabs faster.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/*
+  Turtle Collector - Single file JS game
+  - Arrow keys or WASD to move
+  - Collect stars, avoid enemies
+  - Score + timer + lives
+*/
+
+// Get canvas
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+
+// UI elements
+const scoreEl = document.getElementById('score');
+const livesEl = document.getElementById('lives');
+const timeEl = document.getElementById('time');
+const startBtn = document.getElementById('startBtn');
+
+// Game state
+let game = {
+  running: false,
+  paused: false,
+  score: 0,
+  lives: 3,
+  startTime: 0,
+  elapsed: 0,
+  spawnTimer: 0,
+  difficultyTimer: 0,
+  crabSpeed: 1.2,
+};
+
+// Player (turtle)
+const player = {
+  x: W/2,
+  y: H/2,
+  size: 28,
+  speed: 180, // pixels per second
+  vx:0, vy:0
+};
+
+// Collectible (star)
+let star = createStar();
+
+// Enemies (crabs)
+let crabs = [];
+
+// Keyboard state
+const keys = {};
+
+// Helpers
+function rand(min, max){ return Math.random()*(max-min) + min; }
+function dist(a,b,c,d){ return Math.hypot(a-c, b-d); }
+
+function createStar(){
+  return {
+    x: rand(24, W-24),
+    y: rand(24, H-24),
+    size: 14
+  };
+}
+
+function spawnCrab(){
+  // spawn at random edge
+  const edge = Math.floor(rand(0,4));
+  let x,y;
+  if(edge===0){ x = -30; y = rand(0,H); }              // left
+  else if(edge===1){ x = W+30; y = rand(0,H); }        // right
+  else if(edge===2){ x = rand(0,W); y = -30; }         // top
+  else { x = rand(0,W); y = H+30; }                    // bottom
+
+  const targetX = player.x + rand(-80,80);
+  const targetY = player.y + rand(-80,80);
+  const angle = Math.atan2(targetY - y, targetX - x);
+
+  crabs.push({
+    x,y,
+    size: 26,
+    speed: game.crabSpeed * rand(0.8,1.3),
+    angle
+  });
+}
+
+// Input handlers
+window.addEventListener('keydown', e=>{
+  if(e.key === ' '){ // space toggles pause only when running
+    if(game.running) game.paused = !game.paused;
+    e.preventDefault();
+  }
+  keys[e.key.toLowerCase()] = true;
+});
+window.addEventListener('keyup', e=>{
+  keys[e.key.toLowerCase()] = false;
+});
+
+// Start / restart
+startBtn.addEventListener('click', startGame);
+
+function startGame(){
+  // reset
+  game.running = true;
+  game.paused = false;
+  game.score = 0;
+  game.lives = 3;
+  game.startTime = performance.now();
+  game.elapsed = 0;
+  game.spawnTimer = 0;
+  game.difficultyTimer = 0;
+  game.crabSpeed = 1.2;
+  player.x = W/2;
+  player.y = H/2;
+  player.vx = 0; player.vy = 0;
+  star = createStar();
+  crabs = [];
+  updateUI();
+  lastTime = performance.now();
+  requestAnimationFrame(loop);
+}
+
+// Update UI elements
+function updateUI(){
+  scoreEl.textContent = 'Score: ' + game.score;
+  livesEl.textContent = 'Lives: ' + game.lives;
+  timeEl.textContent = 'Time: ' + Math.floor(game.elapsed/1000) + 's';
+}
+
+// Draw shapes
+function drawTurtle(x,y,size){
+  // simple turtle: shell + head + flippers
+  ctx.save();
+  ctx.translate(x,y);
+  // shell
+  ctx.beginPath();
+  ctx.ellipse(0,0,size*0.65,size*0.45,0,0,Math.PI*2);
+  ctx.fillStyle = '#2e8b57';
+  ctx.fill();
+  // shell pattern
+  ctx.strokeStyle = '#1f5d3f';
+  ctx.lineWidth = 2;
+  for(let i=0;i<5;i++){
+    ctx.beginPath();
+    ctx.ellipse(0,0, size*0.45 - i*3, size*0.3 - i*2, 0, 0, Math.PI*2);
+    ctx.stroke();
+  }
+  // head
+  ctx.beginPath();
+  ctx.arc(size*0.6, -size*0.08, size*0.26, 0, Math.PI*2);
+  ctx.fillStyle = '#4fb07b';
+  ctx.fill();
+  // eye
+  ctx.beginPath();
+  ctx.arc(size*0.68, -size*0.2, size*0.06, 0, Math.PI*2);
+  ctx.fillStyle = '#000';
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawStar(x,y,size){
+  ctx.save();
+  ctx.translate(x,y);
+  ctx.beginPath();
+  for(let i=0;i<5;i++){
+    ctx.lineTo(Math.cos((18+72*i)/180*Math.PI)*size, -Math.sin((18+72*i)/180*Math.PI)*size);
+    ctx.lineTo(Math.cos((54+72*i)/180*Math.PI)*size*0.5, -Math.sin((54+72*i)/180*Math.PI)*size*0.5);
+  }
+  ctx.closePath();
+  ctx.fillStyle = '#ffd25a';
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawCrab(crab){
+  ctx.save();
+  ctx.translate(crab.x, crab.y);
+  // body
+  ctx.beginPath();
+  ctx.ellipse(0,0, crab.size*0.9, crab.size*0.6, 0, 0, Math.PI*2);
+  ctx.fillStyle = '#d9534f';
+  ctx.fill();
+  // eyes stalks
+  ctx.beginPath();
+  ctx.moveTo(-crab.size*0.35, -crab.size*0.6);
+  ctx.lineTo(-crab.size*0.35, -crab.size*1.0);
+  ctx.moveTo(crab.size*0.35, -crab.size*0.6);
+  ctx.lineTo(crab.size*0.35, -crab.size*1.0);
+  ctx.strokeStyle = '#822';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  // claws
+  ctx.fillStyle = '#c63';
+  ctx.beginPath();
+  ctx.arc(-crab.size*0.9, 0, crab.size*0.36, 0, Math.PI*2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(crab.size*0.9, 0, crab.size*0.36, 0, Math.PI*2);
+  ctx.fill();
+  ctx.restore();
+}
+
+// Game loop
+let lastTime = 0;
+function loop(time){
+  if(!game.running) return;
+  if(game.paused){
+    // draw a paused overlay
+    render();
+    ctx.fillStyle = 'rgba(0,0,0,0.35)';
+    ctx.fillRect(0,0,W,H);
+    ctx.fillStyle = '#fff';
+    ctx.font = '28px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('PAUSED', W/2, H/2);
+    return;
+  }
+
+  const dt = Math.min(40, time - lastTime) / 1000; // seconds, cap for stability
+  lastTime = time;
+  update(dt);
+  render();
+
+  if(game.running) requestAnimationFrame(loop);
+}
+
+function update(dt){
+  // update timers
+  game.elapsed = performance.now() - game.startTime;
+  game.spawnTimer += dt;
+  game.difficultyTimer += dt;
+
+  // difficulty increases every 12s
+  if(game.difficultyTimer > 12){
+    game.difficultyTimer = 0;
+    game.crabSpeed *= 1.08;
+  }
+
+  // spawn crabs periodically (faster as score increases)
+  const spawnInterval = Math.max(0.6, 2.5 - game.score*0.05 - game.crabSpeed*0.1);
+  if(game.spawnTimer > spawnInterval){
+    spawnCrab();
+    game.spawnTimer = 0;
+  }
+
+  // handle input -> velocity
+  let moveX = 0, moveY = 0;
+  if(keys['arrowup'] || keys['w']) moveY = -1;
+  if(keys['arrowdown'] || keys['s']) moveY = 1;
+  if(keys['arrowleft'] || keys['a']) moveX = -1;
+  if(keys['arrowright'] || keys['d']) moveX = 1;
+
+  // normalize diagonal
+  if(moveX !== 0 && moveY !== 0){
+    const m = Math.SQRT1_2;
+    moveX *= m; moveY *= m;
+  }
+  player.vx = moveX * player.speed;
+  player.vy = moveY * player.speed;
+
+  // update position
+  player.x += player.vx * dt;
+  player.y += player.vy * dt;
+
+  // clamp to canvas
+  player.x = Math.max(16, Math.min(W-16, player.x));
+  player.y = Math.max(16, Math.min(H-16, player.y));
+
+  // update crabs
+  for(let i = crabs.length-1; i >= 0; i--){
+    const c = crabs[i];
+    // move toward player slightly adjusting angle
+    const angleToPlayer = Math.atan2(player.y - c.y, player.x - c.x);
+    // interpolate angle so they don't instantly snap
+    c.angle += (angleToPlayer - c.angle) * 0.02;
+    c.x += Math.cos(c.angle) * c.speed * 60 * dt;
+    c.y += Math.sin(c.angle) * c.speed * 60 * dt;
+
+    // simple offscreen clean-up
+    if(c.x < -80 || c.x > W+80 || c.y < -80 || c.y > H+80){
+      crabs.splice(i,1);
+    }
+  }
+
+  // collision: player & star
+  if(dist(player.x, player.y, star.x, star.y) < (player.size*0.5 + star.size*0.6)){
+    game.score += 10;
+    // reward: small speed boost
+    player.speed = Math.min(320, player.speed + 5);
+    star = createStar();
+    // spawn 0-1 extra crabs on pickup
+    if(Math.random() < 0.4) spawnCrab();
+  }
+
+  // collision: player & crabs
+  for(let i = crabs.length-1; i >= 0; i--){
+    const c = crabs[i];
+    if(dist(player.x, player.y, c.x, c.y) < (player.size*0.6 + c.size*0.5)){
+      // hit!
+      game.lives -= 1;
+      // knockback player a little
+      const angle = Math.atan2(player.y - c.y, player.x - c.x);
+      player.x += Math.cos(angle) * 40;
+      player.y += Math.sin(angle) * 40;
+      // remove this crab
+      crabs.splice(i,1);
+
+      // reset speed slightly
+      player.speed = Math.max(140, player.speed - 18);
+
+      if(game.lives <= 0){
+        gameOver();
+        return;
+      }
+    }
+  }
+
+  updateUI();
+}
+
+function gameOver(){
+  game.running = false;
+  // draw final frame then overlay gameover
+  render();
+  ctx.fillStyle = 'rgba(0,0,0,0.45)';
+  ctx.fillRect(0,0,W,H);
+  ctx.fillStyle = '#fff';
+  ctx.font = '30px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('GAME OVER', W/2, H/2 - 12);
+  ctx.font = '18px sans-serif';
+  ctx.fillText(`Score: ${game.score}  —  Time: ${Math.floor(game.elapsed/1000)}s`, W/2, H/2 + 18);
+}
+
+// Rendering
+function render(){
+  // clear
+  ctx.clearRect(0,0,W,H);
+
+  // background pattern (light)
+  // draw ground texture circles
+  for(let i=0;i<20;i++){
+    ctx.beginPath();
+    ctx.fillStyle = 'rgba(255,255,255,0.02)';
+    ctx.arc( (i*47)%W, (i*97)%H, 10,0,Math.PI*2 );
+    ctx.fill();
+  }
+
+  // star
+  drawStar(star.x, star.y, star.size);
+
+  // crabs
+  for(const c of crabs) drawCrab(c);
+
+  // player (turtle)
+  drawTurtle(player.x, player.y, player.size);
+}
+
+// Auto-start hint (not auto-start game to avoid surprise)
+(function init(){
+  // initial render
+  render();
+  // small pulsing star to indicate collectible
+  // show help overlay briefly
+  ctx.fillStyle = 'rgba(0,0,0,0.03)';
+})();
+
+
+// Keyboard accessibility: start on Enter
+window.addEventListener('keydown', e=>{
+  if(e.key === 'Enter' && !game.running) startGame();
+});
+
+// Touch controls (basic): tap to move toward a point
+canvas.addEventListener('touchstart', e=>{
+  e.preventDefault();
+  if(!game.running) {
+    startGame();
+    return;
+  }
+  const t = e.touches[0];
+  const rect = canvas.getBoundingClientRect();
+  const tx = (t.clientX - rect.left) * (canvas.width/rect.width);
+  const ty = (t.clientY - rect.top) * (canvas.height/rect.height);
+  // set a short-lived velocity toward touch
+  const angle = Math.atan2(ty - player.y, tx - player.x);
+  player.vx = Math.cos(angle) * player.speed * 0.9;
+  player.vy = Math.sin(angle) * player.speed * 0.9;
+  // small move
+  player.x += player.vx * 0.06;
+  player.y += player.vy * 0.06;
+});
+</script>
+</body>
+</html>

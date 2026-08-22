@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #menu{
+        width: 1450px;
+        height: 50px;
+        background-color: brown;
+        text-align: center;
+        text-decoration: none;
+        align-content: center;
+        word-spacing: 30px;
+    }
+    #man{
+        text-decoration: none;
+        color: aliceblue;
+    }
+    .order{
+        width: 400px;
+        height: 200px;
+        border: 2px solid red;
+        background-color: brown;
+        color: aliceblue;
+        margin-top: 20px;
+        margin-left: 400px;
+    }
+    .unorder{
+        width: 400px;
+        height: 200px;
+        border: 2px solid red;
+        background-color: brown;
+        color: aliceblue;
+        align-content: center;
+        margin-top: 20px;
+        margin-left: 400px;
+    }
+    
+    .over{
+        width: 400px;
+        height: 300px;
+        overflow: scroll;
+        background-color: brown;
+        color: aliceblue;
+        margin-top: 20px;
+        margin-left: 400px;
+    }
+    
+    #option{
+        width: 150px;
+        height: 30px;
+        background-color: brown;
+        color: aliceblue;
+        margin-top: 20px;
+        margin-left: 400px;
+    
+    }
+    .form{
+        width: 290px;
+        height: 330px;
+        background-color: brown;
+        color: aliceblue;
+        margin-top: 20px;
+        margin-left: 400px;
+    }
+    .table{
+        color: aliceblue;
+        margin-top: 20px;
+        margin-left: -400px;
+    }
+        
+    
+    .img{
+        background-image: url(photo/1.jpg);
+        width: 300px;
+        height: 300px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        margin-top: 20px;
+        margin-left: 400px;
+    
+
+    }
+    .video{
+        width: 300px;
+        height: 300px;
+        border: 1px solid brown;
+        margin-top: 20px;
+        margin-left: 400px;
+    }
+    .maps{
+        width: 400px;
+        height: 360px;
+        border: 1px solid brown;
+        margin-top: 20px;
+        margin-left: 400px;
+    }
+    .hading{
+        width: 300px;
+        height: 300px;
+        border: 1px solid brown;
+        margin-top: 20px;
+        margin-left: 400px;
+        background-color: brown;
+        color: aliceblue;
+    }
+   
+   
+</style>
+<body>
+    <div id="menu">
+       <div class="man">
+        <a href=""id="man">HTML</a>
+        <a href=""id="man">CSS</a>
+        <a href=""id="man">BOTTSTRAPP</a>
+        <a href=""id="man">JAVASCRIPT</a>
+        <a href=""id="man">PHP</a>
+       </div>
+    </div>
+    <!-- Order LIst -->
+ <div class="order">
+    <ol type="a">
+        <li>html</li>
+        <li>css
+            <!-- Nested list -->
+            <ol type="1">
+                <li>html</li>
+                <li>css</li>
+                <li>javscript</li>
+                <li>bootstrap</li>
+            </ol>
+        </li>
+        <li>javscript</li>
+        <li>bootstrap</li>
+    </ol>
+ </div>
+ 
+
+     <!-- UN Order LIst -->
+      <div class="unorder">
+     <ul type="circle">
+        <li>html</li>
+        <li>css</li>
+        <li>javscript</li>
+        <li>bootstrap</li>
+     </ul>
+    </div>
+
+    
+   
+         
+         
+         
+         <!-- Basic tast in html -->
+          <div class="over">
+          <p><b>Lorem ipsum dolor sit amet consectetur adipisicing elit. </b><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa </i><strong>quaerat eaque, enim explicabo inventore quia voluptatem dicta aut itaque ipsum similique vel autem, odio, excepturi </strong> <mark>! Corporis porro est sit velit repellendus provident dolorum vero accusamus consectetur voluptate quisquam autem ducimus, </mark><markuee>aliquam similique ipsa voluptas cupiditate praesentium id adipisci fuga doloribus? Quae expedita quidem sapiente </markuee><center>ptatum eaque distinctio perspiciatis quo dicta repellat? Incidunt ullam perspiciatis deserunt tenetur minus consequuntur laborum iure autem ducimus, cumque obcaecati explicabo illo eaque magnam veniam optio animi qua</center><ul>nostrum maiores facilis porro voluptatibus, explicabo</ul>ayub<hr> consequuntur ad quia  magnam, excepturi natus nam deleniti iste, volue.</p>
+        </div>
+          
+          
+          <!-- Option group -->
+           <select id="option">
+            <optgroup label="pakistan">
+            <option>peshawer</option>
+            <option>islamabad</option>
+            <option>lahore</option>
+            <option>karaci</option>
+        </optgroup>
+           </select>
+
+          
+          
+           <!-- Form -->
+            <div class="form">
+            <form>
+                <fieldset>
+                    <legend>form</legend>
+                    <lable>Name</lable><br>
+                    <input type="name"><br>
+                    <lable>F/name</lable><br>
+                    <input type="name"><br>
+                    <lable>phone</lable><br>
+                    <input type="number"><br>
+                    <lable>Email</lable><br>
+                    <input type="email"><br>
+                    <lable>Passward</lable><br>
+                    <input type="password"><br>
+                    <lable>Gender</lable><br>
+                    male:<input type="radio"name="Gender"><br>
+                    F/male:<input type="radio"name="Gender"><br>
+                    None:<input type="radio"name="Gender"><br>
+                    <input type="submit">
+                </fieldset>
+            </form>
+        </div>
+
+           
+           
+           
+           
+            <!-- Table -->
+             <div class="table">
+             <table border="1" bgcolor="brown" width="290px" align="center">
+                <thead>
+                    <th>s No</th>
+                    <th>Name</th>
+                    <th>F/name</th>
+                    <th>class</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>ayub</td>
+                        <td>wali</td>
+                        <td>10th</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ayub</td>
+                        <td>wali</td>
+                        <td>10th</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ayub</td>
+                        <td>wali</td>
+                        <td>10th</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ayub</td>
+                        <td>wali</td>
+                        <td>10th</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ayub</td>
+                        <td>wali</td>
+                        <td>10th</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ayub</td>
+                        <td>wali</td>
+                        <td>10th</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ayub</td>
+                        <td>wali</td>
+                        <td>10th</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ayub</td>
+                        <td>wali</td>
+                        <td>10th</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ayub</td>
+                        <td>wali</td>
+                        <td>10th</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>ayub</td>
+                        <td>wali</td>
+                        <td>10th</td>
+                    </tr>
+                </tbody>
+             </table>
+            </div>
+
+               <!-- Image -->
+     <div class="img">
+        
+     </div>
+ 
+ 
+       <!-- video -->
+       <div class="video">
+        <video src="video/0213 (1).mp4" alt="" width="300px" height="300px" controls loop ></video><br>
+       </div>
+
+       <div class="audio">
+        <audio src="" controls autoplay loop muted></audio>
+       </div>
+
+
+        <!-- Maps -->
+         <div class="maps">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d424897.6913576488!2d70.33618579999998!3d33.695666700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1744342279250!5m2!1sen!2s" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+         </div>
+        
+        
+        <!-- Hading tags -->
+         <div class="hading">
+          <h1>Ayub khan</h1>
+          <h2>Ayub khan</h2>
+          <h3>Ayub khan</h3>
+          <h4>Ayub khan</h4>
+          <h5>Ayub khan</h5>
+          <h6>Ayub khan</h6>
+        </div>
+ </body>
+</html>

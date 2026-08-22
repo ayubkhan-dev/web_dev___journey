@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Layout: Grid & Flexbox</title>
+    <style>
+        /* -----------------------------------------------
+           1. RESET & BASIC STYLES
+           ----------------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* -----------------------------------------------
+           2. CSS GRID: MAIN PAGE LAYOUT
+           This defines the overall structure of the single page.
+           ----------------------------------------------- */
+        .page-container {
+            display: grid;
+            /* We define 3 distinct rows: header, main content, and footer.
+               - Header is 80px
+               - Main content takes all remaining space (1fr)
+               - Footer is 100px */
+            grid-template-rows: 80px 1fr 100px;
+            /* The grid will span the full viewport height */
+            min-height: 100vh;
+        }
+
+        /* -----------------------------------------------
+           3. FLEXBOX: HEADER NAVIGATION
+           Use Flexbox to space items horizontally.
+           ----------------------------------------------- */
+        .main-header {
+            background-color: #ffffff;
+            color: #333;
+            padding: 0 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: fixed; /* Keep header at the top */
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            /* --- FLEXBOX START --- */
+            display: flex;
+            justify-content: space-between; /* Logo left, Nav right */
+            align-items: center; /* Vertically center items */
+            height: 80px; /* Matching the grid row height */
+            /* --- FLEXBOX END --- */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            /* --- FLEXBOX START (nested) --- */
+            display: flex;
+            gap: 30px; /* Space between navigation items */
+            /* --- FLEXBOX END --- */
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* -----------------------------------------------
+           4. MAIN CONTENT AREA
+           This section is the '1fr' row in our main Grid.
+           ----------------------------------------------- */
+        .main-content {
+            /* Add padding to the top so content doesn't go under the fixed header */
+            padding-top: 80px; 
+            max-width: 1200px;
+            margin: 0 auto; /* Center the content container */
+            width: 90%;
+        }
+
+        /* -----------------------------------------------
+           5. HERO SECTION (Flexbox or Basic)
+           We use simple padding and centering here.
+           ----------------------------------------------- */
+        .hero {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #3498db;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e6f0fa;
+        }
+
+        /* -----------------------------------------------
+           6. CSS GRID: FEATURES SECTION
+           We use Grid here to create a 3-column responsive card layout.
+           ----------------------------------------------- */
+        .features {
+            padding: 80px 0;
+
+            /* --- CSS GRID START --- */
+            display: grid;
+            /* auto-fit/repeat: Creates columns automatically based on minimal width */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* 'gap' handles all spacing between the grid items */
+            gap: 40px; 
+            /* --- CSS GRID END --- */
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* -----------------------------------------------
+           7. FLEXBOX: FOOTER
+           Use Flexbox to center the copyright text.
+           ----------------------------------------------- */
+        .main-footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 0 20px;
+
+            /* --- FLEXBOX START --- */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            /* --- FLEXBOX END --- */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+
+        <header class="main-header">
+            <div class="logo">FlexGridCo</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            
+            <section class="hero">
+                <h1>Modern Web Layout</h1>
+                <p>This single page demonstrates how CSS Grid and Flexbox work together seamlessly to create a responsive, robust website structure.</p>
+                <a href="#" class="btn">Get Started</a>
+            </section>
+
+            <section class="features">
+                <div class="feature-card">
+                    <h2>CSS Grid</h2>
+                    <p>Handles the main page structure (rows) and the 3-column card layout (columns). Grid is best for 2D layouts.</p>
+                </div>
+                <div class="feature-card">
+                    <h2>Flexbox</h2>
+                    <p>Perfect for 1D alignments. We use Flexbox for the Header content alignment and to center the Footer text.</p>
+                </div>
+                <div class="feature-card">
+                    <h2>Responsive</h2>
+                    <p>The layout automatically adapts. On mobile, the Grid columns stack, and the Flexbox header maintains alignment.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2023 FlexGridCo. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
