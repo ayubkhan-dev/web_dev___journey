@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+    }
+</style>
+<body>
+    <h1>jquery event.type property</h1>
+    <div class="box"></div>
+    
+    <h2></h2>
+
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script>
+        $(document).ready(function(){
+            $('.box').on("click dblclick mouseover mouseout",function(event){
+                $('h2').html("Event:" + event.type)
+            });
+        });
+     </script>
+</body>
+</html>

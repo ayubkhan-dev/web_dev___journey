@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            background-color: rgb(4, 226, 85);
+        }
+    </style>
+</head>
+<body>
+    <h1>jquery hide & show method</h1>
+
+
+    <div class="box">
+        <h2>Test Box</h2>
+        <p>Lorem ipsum,lendus aliquid, repellat dolorem quos ullam error maxime odio, delectus maiores minus voluptate nostrum!</p>
+    </div>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#hide').click(function(){
+            $('.box').hide('slow');
+        });
+
+        $('#show').click(function(){
+            $('.box').show('fast');
+        });
+    });
+</script>
+</body>
+</html>

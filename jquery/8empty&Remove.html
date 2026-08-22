@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .box{
+            border: 3px solid red;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>this is emty and remove methode</h3>
+        <p>this is a empty and remove methods</p>
+    </div>
+    <br>
+    <button id="empty">empty</button>
+    <button id="remove">remove</button>
+
+    <script>
+        $(document).ready(function(){
+            $('#empty').click(function(){
+                $('.box').empty();
+            });
+
+            $('#remove').click(function(){
+                $('.box').remove();
+            })
+        });
+        $(".box").css("width","300px")
+    </script>
+</body>
+</html>

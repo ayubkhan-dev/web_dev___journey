@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<style>
+  .main{
+    width: 450px;
+    height: auto;
+    border: 3px solid red;
+    border-top: 3px solid gold;
+    display: flex;
+
+  }
+   .box{
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    border-radius: 50%;
+    text-align: center;
+    align-content: center;
+    margin: auto;
+  
+   }
+    .box2{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(228, 232, 15);
+    border-radius: 50%;
+     text-align: center;
+    align-content: center;
+    margin: auto;
+    margin-top: 20px;
+}
+</style>
+<body>
+  <div class="main">
+
+ 
+  <div class="box">
+    <p>this is box and click here to change the color</p>
+  </div>
+  <div class="box2">
+    <p>this is box2 and double click here to change the color</p>
+  </div>
+   </div>
+
+
+  <script>
+    $(document).ready(function(){
+        $('.box').click(function(){
+            $(this).css({'background-color':'red','color':'white'});
+        });
+
+        $('.box2').dblclick(function(){
+            $(this).css({'background-color':"black","color":'white'});
+        });
+    })
+  </script>
+</body>
+</html>

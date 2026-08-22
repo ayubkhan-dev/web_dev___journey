@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 500px;
+        height: 400px;
+        background-color: aquamarine;
+    }
+</style>
+<body>
+    <h1>jquery event.target property</h1>
+    <div class="box">
+    <h2>test box</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo hic veritatis magni harum dolor nesciunt nemo sit consectetur, quidem sunt repellendus quam, facilis, nam in? Nulla aspernatur reprehenderit labore odit?</p>
+    <button>test button</button>
+    </div>
+    <br>
+    
+    <h3></h3>
+
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script>
+        $(document).ready(function(){
+            $('.box').on("click",function(){
+                $('h3').html("Target Element : " + event.target);
+            });
+        });
+     </script>
+</body>
+</html>

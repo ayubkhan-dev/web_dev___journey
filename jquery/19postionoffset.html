@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .div{
+        width: 300px;
+        height: auto;
+        background-color: aquamarine;
+    }
+</style>
+<body>
+    <h2>jquery offset and position method</h2>
+    <div class="div">
+        <h2>test box</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque totam consequatur reprehenderit consequuntur labore deleniti cum ea minus laudantium sapiente optio facere iure esse, praesentium aliquid molestiae odit incidunt dicta.</p>
+    </div>
+    <button id="pos">position</button>
+    <button id="off">offset</button>
+
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script>
+        $(document).ready(function(){
+            $('#pos').click(function(){
+            console.log($('.div h2').position());
+            });
+
+            $('#off').click(function(){
+                console.log($('.div h2').offset());
+            });
+        });
+     </script>
+</body>
+</html>

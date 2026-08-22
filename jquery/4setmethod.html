@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+       .blue{
+        width: 300px;
+        padding: 10px;
+        color: red;
+        background-color: black;
+       }
+    </style>
+</head>
+<body>
+     <h1>jQuery set methods</h1>
+
+    <div class="box">
+        <h3 id="heading">this is a heading</h3>
+        <p id="paragrap">this ia a paragrap</p>
+    </div>
+    <button id="click">click</button>
+
+
+
+    <script>
+        $('document').ready(function(){
+           $('#click').click(function(){
+             $('#heading').text("this is a new heading");
+             $('#paragrap').html("this is a new paragrap <b>it is bold</b>");
+             $('#paragrap ,#heading').attr('class','blue');
+           });
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+    </script>
+</body>
+</html>

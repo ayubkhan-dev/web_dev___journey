@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<style>
+    .box{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+</style>
+<body>
+    <div class="box">
+        this is keybord keypress and keypress method
+    </div>
+      
+  
+   <script>
+    $(document).ready(function(){
+        $('body').keypress(function(){
+            $(this).css("background-color","red");
+        });
+
+        $('body').keyup(function(){
+            $(this).css("background-color","blue");
+        });
+
+         $('body').keydown(function(){
+            $(this).css("background-color","orange");
+        });
+
+    });
+   </script>
+</body>
+</html>

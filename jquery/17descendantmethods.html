@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   * {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    border: 2px solid black;
+    width: 500px;
+    padding: 10px;
+    background-color: aqua;
+}
+
+.outer {
+    border: 2px solid blue;
+    padding: 10px;
+    margin-top: 10px;
+     background-color: rgb(215, 245, 19);
+}
+
+.inner {
+    border: 2px solid green;
+    padding: 10px;
+    margin-top: 10px;
+   
+     background-color: rgb(234, 110, 16);
+
+    /* layout for A B C D */
+    display: flex;
+    gap: 10px;
+}
+
+.inner div {
+    border: 1px solid red;
+    padding: 10px;
+    min-width: 50px;
+    height: 100px;
+     margin-top: 30px;
+    text-align: center;
+    align-content: center;
+    background-color: rgb(234, 230, 228);
+}
+
+
+</style>
+<body>
+    <div class="main">
+        <h2>main outer</h2>
+        <div class="outer">
+            <h2>outer</h2>
+            <div class="inner">
+                <h2>inner</h2>
+                <div>A</div>
+                <div>B</div>
+                <div class="divc">C</div>
+                <div>D</div>
+            </div>
+        </div>
+    </div>
+
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <script>
+        $(document).ready(function(){
+            $('.inner').children().css('background-color','red');
+        });
+      </script>
+
+      <!-- Descendantmethods mean when we select the childern  of the parent is called descendantmethod.
+      descendantmethods is this 
+      1 children()
+      2 children('.divc')
+</body>
+</html>

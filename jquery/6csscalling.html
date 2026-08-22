@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head> 
+<body>
+    <h1>jquery css calling</h1>
+    <div class="box">
+        <h1>here is css calling</h1>
+        <p>this is a paragrap for css calling</p>
+    </div>
+    <button id="culik">click</button>
+
+    <script>
+        $(document).ready(function(){
+            $('#culik').click(function(){
+                $('.box').css({"background-color":"blue","color":"red"});
+            });
+        });
+    </script>
+</body>
+</html>

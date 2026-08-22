@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 100px;
+            background: #000;
+            /* border-radius: 100%; */
+        }
+         .two{
+            width: 200px;
+            height: 100px;
+            background: #f00909;
+            border: 1px solid red;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div><br>
+    <button id="add">add class</button>
+    <button id="remove">remove class</button>
+    <button id="toggle">toggle class</button>
+
+
+    <script>
+        $(document).ready(function(){
+            $('#add').click(function(){
+                $('.box').addClass('two');
+            });
+
+            $('#remove').click(function(){
+                $('.box').removeClass('two');
+            });
+
+
+            $('#toggle').click(function(){
+                $('.box').toggleClass('two');
+            });
+        });
+    </script>
+</body>
+</html>

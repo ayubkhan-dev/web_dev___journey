@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 400px;
+        height: 300px;
+        background-color: aquamarine;
+        padding: 10px;
+    }
+</style>
+<body>
+    <h1>event.preventdefault  property</h1>
+
+    <div class="box">
+        <a href="https://www.yahubaba.com/" id="result">yahoo baba website (prevent dfault)</a> <br>
+        <a href="https://www.yahubaba.com/">yahoo baba website</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#result').click(function(){
+                event.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>

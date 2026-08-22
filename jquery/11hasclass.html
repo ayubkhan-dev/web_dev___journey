@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .box{
+            width: 400px;
+
+            border: 1px solid red;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>jquery has class method</h1>
+    <div id="box1" class="box">
+        <h2>test box</h2>
+        <p>Lorem ipsum dolor sit amet consectetudi corporis, nobis quibusdam, quaerat ipsam, maiores debitis nostrum dignissimos!</p>
+    </div><br>
+    <button class="btn" >hasclass</button>
+
+    <script>
+        $(document).ready(function(){
+            $('.btn').click(function(){
+                
+                alert($('#box1').hasClass('box'));
+            })
+        })
+    </script>
+   
+
+
+
+</body>
+</html>

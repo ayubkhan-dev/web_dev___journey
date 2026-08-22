@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<style>
+    #hello{
+        width: 300px;
+        height: 200px;
+        background-color: aquamarine;
+    }
+</style>
+<body>
+    <h1>jquery get methods</h1>
+
+    <div id="hello" class="hello2">
+        <h1>hello this is heading in hello box</h1>
+        <p>this is paragrap in hello box</p>
+    </div>
+
+
+<script>
+    $(document).ready(function(){
+
+       var a= $('#hello').html();
+        alert(a);
+
+        // var b=$('#hello').text();
+        // alert(b);
+
+        // var c= ('#hello').attr();
+        // alert(c);
+    });
+</script>
+</body>
+</html>

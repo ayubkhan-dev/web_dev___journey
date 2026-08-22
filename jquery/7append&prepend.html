@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>jquery append and prepend methods</h1>
+
+    <div class="box">
+        <h2>what is append methods and prepend</h2>
+        <p>now we say what is appand and prepannd methods</p>
+
+    </div>
+    <button id="append">Append</button>
+    <button id="preppend">preppend</button>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#append').click(function(){
+                $('.box').append("<h3>it append class </h3>");
+            });
+
+            $('#preppend').click(function(){
+                $('.box').prepend("<h3>it preppend class method</h3>");
+            });
+
+        });
+
+        $('.box').css({"background-color":"black","color":"white","width":"400px"});
+    </script>
+</body>
+</html>

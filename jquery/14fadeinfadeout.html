@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            background-color: aquamarine;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>fadein and fadeout method</h1>
+    <div id="box">
+    <h2>test box</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisvelit nostrum voluptates voluptate quasi consequatur iste pariatur officia!</p>
+    </div>
+    <button id="fadeout">fadeout</button>
+    <button id="fadein"> fadein</button>
+    <button id="fadetoggle">fadetoggle</button>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+         $('#fadeout').click(function(){
+             $('#box').fadeOut("slow");
+        });
+
+        $('#fadein').click(function(){
+            $('#box').fadeIn("slow");
+            
+        });
+
+         $('#fadetoggle').click(function(){
+            $('#box').fadeToggle(3000,function(){
+                alert("now it show");
+            });
+            
+        });
+         
+
+    });
+</script>
+
+</body>
+</html>

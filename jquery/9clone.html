@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            border: 3px solid red;
+            background-color: aquamarine;
+        }
+
+        #box2{
+            border: 3px solid red;
+            background-color: rgb(232, 250, 40);
+        }
+    </style>
+</head>
+<body>
+    <h1>jquery clone() methods</h1>
+
+    <div id="box">
+        <h2>test box</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur a et, dolorem fuga.</p>
+    </div>
+
+     <div id="box2">
+       this is a second box
+    </div><br>
+    <button id="clone">clone</button>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+         <script>
+            $('document').ready(function(){
+                $('#clone').click(function(){
+                    $('#box h2').clone().prependTo('#box2');
+                    $('#box p').clone().prependTo('#box2');
+                });
+            });
+         </script>
+</body>
+</html>

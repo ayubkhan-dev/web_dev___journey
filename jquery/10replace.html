@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            border: 1px solid red;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h1>jquery Replace with() and Replace all()</h1>
+    <div id="box">
+        <h1>test box</h1>
+        <p>Lorem ipsum dolor ta laboriosam id enim, quibusdam ad aliquam iure quia. Possimus, ullam!</p> 
+    </div>
+    <button id="replace">Replace</button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $('document').ready(function(){
+            $('#replace').click(function(){
+                $('#box h1').replaceWith('<h1>replce the box</h1>');
+                $("<p>this is a p paragrap that change parapgape</p>").replaceAll('#box p');
+            });
+        });
+    </script>
+
+</body>
+</html>

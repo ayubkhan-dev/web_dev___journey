@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+</head>
+<body>
+    <!-- <form id="form">
+    <label>name</label>
+    <input type="text" id="name"><br><br>
+
+     <label>father</label>
+    <input type="text" id="father"><br><br>
+
+    <select id="select">
+        <option value="">pakistan</option>
+        <option value="">india</option>
+        <option value="">bangladish</option>
+    </select><br><br>
+
+    <input type="submit" id="submit">
+    </form> -->
+
+    <form action="">
+        <input type="name" id="name"  placeholder="enter your  name"><br>
+        <input type="father" id="father" placeholder="enter your father name"><br>
+        <select name="" id="select">
+            
+                <option value="">name</option>
+                <option value="">father</option>
+                <option value="">email</option>
+          
+        </select>
+    </form>
+
+
+    <script>
+        $(document).ready(function(){
+            $('#name').focus(function(){
+                $(this).css({"background-color":"red","color":"blue","padding":"10px" ,"margin":"10px"});
+            });
+
+            $('#father').blur(function(){
+                $(this).css({"background-color":"red","color":"blue","padding":"10px"});
+            });
+
+            $('#select').change(function(){
+                $(this).css({"background-color":"red","color":"blue","padding":"10px"});
+            });
+        })
+        // $(document).ready(function(){
+
+        //     $('#name').focus(function(){
+        //         $(this).css("background-color","red");
+        //     });
+
+        //     $('#father').blur(function(){
+        //         $('#father').css("background-color","blue");
+        //     });
+
+        //     $('#select').change(function(){
+        //         // $('#select').css("color","red");
+        //         $('#select').css({'background-color':'red','color':'white'});
+        //     })
+        // });
+    </script>
+</body>
+</html>

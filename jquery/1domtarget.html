@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+   <h1 id="hello">this is jqurery clik heading</h1>
+   <h2 class="hello1">thsi is jqurery click heading two</h2>
+   <h3>thsi is jqurery click heading three</h3>
+
+   <script>
+    $(document).ready(function(){
+        $('#hello').click(function(){
+            $(this).css({"color":"red","padding":"2px"});
+        });
+        $('.hello1').click(function(){
+            $(this).css("color","blue");
+        });
+
+        $('h3').click(function(){
+            $(this).css("color","orange");
+        });
+    });
+   </script>
+
+
+ 
+</body>
+</html>
