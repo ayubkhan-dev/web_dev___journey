@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    <p style="color:red" id="test"> this is a p tag</p>
+    <button> hide and show text</button>
+    <input type="text" name="text" >
+
+
+    <button id="btn1">Show Text</button>
+    <button id="btn2">Show HTML</button>
+
+    <p id="test1">This is a paragraph.</p>
+    <p id="test2">This is another paragraph.</p>
+
+    <p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+
+    <button id="btn1">Set Text</button>
+    <button id="btn2">Set HTML</button>
+    <button id="btn3">Set Value</button>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#test1").text("Hello world!");
+            });
+            $("#btn2").click(function () {
+                $("#test2").html("<b>Hello world!</b>");
+            });
+            $("#btn3").click(function () {
+                $("#test3").val("Dolly Duck");
+            });
+            // $('button').click(function () {
+
+
+            // var text=$('#text').val();
+            // if($('#text').is(':visible')){
+            // $('#text').hide();
+
+            // }else{
+            // $('#text').show();
+
+            // }
+            // $('.text').toggle();
+            // });
+            //   $("#btn1").click(function () {
+            //         alert("Text: " + $("#test").text());
+            //     });
+            //     $("#btn2").click(function () {
+            //         alert("HTML: " + $("#test").html());
+            //     });
+        });
+        $('p').hide();
+        $('p').show();
+
+        document.getElementsByTagName('p')[0].style.display="none";
+        document.getElementsByTagName('p')[0].style.display="block";
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<style>
+  #currency{
+    width: 150px;
+    height: 50px;
+    background-color: rgb(9, 215, 57);
+    color: black;
+    font-weight: bold;
+    font-size: larger;
+  }
+  #val{
+     width: 150px;
+    height: 50px;
+    background-color: rgb(9, 215, 57);
+    color: black;
+    font-weight: bold;
+    font-size: larger;
+  }
+  #result{
+      width: 150px;
+    height: 50px;
+    background-color: rgb(9, 215, 57);
+    color: black;
+    font-weight: bold;
+    font-size: larger;
+  }
+</style>
+
+
+
+
+
+<select id="currency">
+  <optgroup label="select youre currancy">
+  <option value="USDToPKR">USD ->PKR</option>
+  <option value="PKRToUSD">PKR -> USD</option>
+  <option value="AFGToPKR">AFG -> PKR</option>
+  <option value="PKRToAFG">PKR -> AFG</option>
+  </optgroup>
+</select>
+<br><br>
+
+<input type="number" id="val"placeholder="Enter amount">
+
+<input type="text" id="result"placeholder="Result" readonly>
+
+
+<script>
+  let usdToPkr = 280;
+  let pkrToUsd = 1 / usdToPkr;
+  let afgToPkr = 100;
+  let pkrToAfg = 1 / afgToPkr;
+  
+
+  document.getElementById("val").addEventListener("keyup", function () {
+    let currency = document.getElementById("currency").value;
+    let amount = parseFloat(document.getElementById("val").value);
+    let resultBox = document.getElementById("result");
+
+    if (currency === "USDToPKR") {
+      
+      let converted_amount=amount*usdToPkr;
+      resultBox.value=converted_amount;
+    } else if (currency === "PKRToUSD"){
+      let converted_amount=amount*pkrToUsd;
+      resultBox.value=converted_amount;
+
+    } else if (currency === "AFGToPKR") {
+      let converted_amount=amount*afgToPkr;
+      resultBox.value=converted_amount;
+
+    } else if (currency === "PKRToAFG") {
+       let converted_amount=amount*pkrToAfg;
+      resultBox.value=converted_amount;
+      
+    }
+
+
+  });
+document.getElementById('currency').addEventListener('change',function(){
+  document.getElementById('val').value="";
+  document.getElementById('result').value="";
+
+  
+
+});
+
+
+
+</script>

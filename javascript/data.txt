@@ -1,0 +1,5 @@
+data after ajax call
+
+
+nam  father  class   phone            marks:
+Ali   saif      2    0303983737       90;
