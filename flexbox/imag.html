@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span {
+        color: red;
+    }
+    h1{
+        text-align: center;
+    }
+    .box{
+        width: 400px;
+        border: 1px solid black;
+        position: relative;
+        overflow: hidden;
+        margin: auto;
+    }
+    img{
+        width: 100%;
+        height: auto;
+
+    }
+    .content{
+        background-color: rgba(0,0,0,0.8);
+        position: absolute;
+        top: -100%;
+        left: 0%;
+        height: 100%;
+        width: 100%;
+        color: white;
+        padding: 20px;
+        box-sizing: border-box;
+        transition: all 0.5s;
+    }
+    .box:hover .content{
+        top: 0%;
+    }
+    .content p{
+        border-top: 1px solid red;
+         border-bottom: 1px solid red;
+         padding: 20px;
+    }
+</style>
+<body>
+    <h1> <span>Ayub khan</span> <br> it is image hover property</h1>
+
+
+    <div class="box">
+        <img src="photo/1.jpg" alt="">
+
+        <div class="content">
+            <h2>office imgae</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laboriosam repudiandae ullam voluptatum harum, vel necessitatibus! Eum quis, quibusdam sapiente perferendis nam deleniti facilis. Tenetur velit assumenda voluptatem consequatur cumque.</p>
+        </div>
+    </div>
+
+</body>
+</html>

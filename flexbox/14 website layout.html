@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+        margin: 0%;
+    }
+header{
+background-color: rgb(82, 57, 9);
+display: flex; 
+}
+header ul{
+    list-style: none;
+    display: flex;
+}
+#log{
+    margin: auto;
+    font-weight: bold;
+
+}
+#meanu li{
+    padding: 10px;
+}
+#soical-link li{
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.box{
+    border: 1px solid rgb(232, 230, 230);
+    padding: 10px;
+    flex-basis: 32%;
+    max-width: 370px;
+    padding: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.box h2{
+    margin: 5px 0 10px;
+}
+
+.box p{
+    margin: 0 0 10px;
+}
+.box img{
+    width: 100%;
+}
+
+#main{
+    display: flex;
+    
+}
+aside{
+    flex:0 0 15vw;
+    background-color: antiquewhite;
+    padding: 10px;
+}
+aside ul{
+    list-style: none;
+    padding: 3px;
+}
+aside ul a{
+    color: rgb(82, 57, 9) ;
+    padding: 10px;  
+    display: block;
+    border-bottom: 1px solid gray;
+  
+    
+}
+aside img{
+    width: 100%;
+    height: 300px;
+}
+article{
+    padding: 10px;
+}
+.call-to-action{
+    align-self: flex-start;
+    margin-top: auto;
+}
+.call-to-action a{
+    background-color: gray;
+    border: 2px solid transparent ;
+    color: #ffff;
+    padding: 8px 13px;
+    display: block;
+}
+
+.call-to-action a:hover{
+    background-color: transparent;
+    border: 2px solid grey ;
+    color: gray;
+}
+footer{
+    background-color: rgb(82, 57, 9);
+    color: aliceblue;
+    text-align: center;
+    padding: 15px 0;
+    margin-bottom: 10px;
+
+}
+
+
+</style>
+<body>
+   <header>
+    <nav  id="meanu">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contect</a></li>
+        </ul>
+    </nav>
+    <div id="log">
+        <a href="">Ayub khan</a>
+    </div>
+
+    <nav id="soical-link">
+        <ul>
+            <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-youtube"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-square-google-plus"></i></a></li>
+        </ul>
+    </nav>
+   </header>
+
+   <div id="main">
+    <aside>
+        <ul>
+            <li><a href=""></a>some link</li>
+            <li><a href=""></a>some link</li>
+            <li><a href=""></a>some link</li>
+            <li><a href=""></a>some link</li>
+            <li><a href=""></a>some link</li>
+        </ul>
+
+        <img src="photo/2.jpg" alt="">
+
+    </aside>
+
+    <article>
+        <h2>welcome to our website</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet et natus, doloremque voluptas distinctio autem sinLorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet et natus, doloremque voluptas disttemporibus quidem, quia dtemporibus quidem, quia dtemporibus quidem, qinctio autem sint dolore ex delectus corrupti laboriosam, nam consectetur expedita temporibus quidem, quia dolorem harum! Quam?t dolore ex delectus corrupti laboriosam, nam consectetur expedita tempdistinctio autem sinLorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet et natus, doloremque voluptas distinctio autem sint dolore ex delectus corrupti laboriosam, nam consectetur expedita temporibus quidem, quia dolorem harum! Quam?t dolore ex delectus corrupti laboriosam, nam consectetur expedita temporibus quidem, quia dolorem harum! Quam?</p>
+
+        <h2>our service</h2>
+        <div class="container">
+            <div class="box">
+                <div class="photo">
+                    <img src="photo/3.jpg" alt="">
+                </div>
+                <div class="title">
+                    <h2>web design</h2>
+                </div>
+                <div class="desc">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eveniet eum, iste neque quos vel sequi animi? Vel omnis id molestias, nesciunt, non nisi sed dolore voluptatem animi a sit!</p>
+                </div>
+                <div class="call-to-action">
+                   <a href="">Read more</a>
+                </div>
+            </div>
+
+             <div class="box">
+                <div class="photo">
+                    <img src="photo/1.jpg" alt="">
+                </div>
+                <div class="title">
+                    <h2>web development</h2>
+                </div>
+                <div class="desc">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eveniet eum, iste neque quos vel sequi animi? Vel omnis id molestias, nesciunt, non nisi sed dolore voluptatem animi a sit!</p>
+                </div>
+                <div class="call-to-action">
+                   <a href="">Read more</a>
+                </div>
+            </div>
+
+
+
+             <div class="box">
+                <div class="photo">
+                    <img src="photo/2.jpg" alt="" >
+                </div>
+                <div class="title">
+                    <h2>mobile app development</h2>
+                </div>
+                <div class="desc">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eveniet eum, iste neque quos vel sequi animi? Vel omnis id molestias, nesciunt, non nisi sed dolore voluptatem animi a sit!</p>
+                </div>
+                <div class="call-to-action">
+                   <a href="">Read more</a>
+                </div>
+            </div>
+        </div>
+    </article>
+   </div>
+   <footer>
+    made by Ayub khan
+   </footer>
+</body>
+</html>
