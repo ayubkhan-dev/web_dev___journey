@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="counter">0</div>
+    <button id="btn">again click</button>
+
+    <script>
+    // document.getElementById('btn').addEventListener('click',function(){
+    //     alert("you clik the btn")
+    //  })
+
+    // document.getElementById('btn').addEventListener('click',function(){
+    //     document.getElementById('counter').innerText=1;
+    // });
+
+    // document.getElementById('btn').addEventListener('click',function(){
+    //     document.getElementById('btn').style.backgroundColor="red";
+    // }); 
+
+    // var a =0;
+    // document.getElementById('btn').addEventListener('click',function(){
+    //     document.getElementById('counter').innerText=a;
+    //     a++;
+        
+    // });
+
+       var a =0;
+    document.getElementById('btn').addEventListener('click',function(){
+        document.getElementById('counter').innerText=a;
+        a++;
+        document.getElementById('counter').style.color="red";
+        document.getElementById('counter').style.fontSize="100px";
+    });
+    </script>
+</body>
+</html>

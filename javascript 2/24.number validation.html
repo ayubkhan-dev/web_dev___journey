@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>enter your phone number</h1>
+    <input type="text" name="" id="inp" onkeyup="hello(this)">
+    <div id="box"></div>
+
+    
+
+    <script>
+        function hello(elem){
+            document.getElementById('box').style.color="red";
+            if(isNaN(elem.value)){
+                document.getElementById('box').innerText="plz enter only number";
+            }
+            else{
+                document.getElementById('box');
+            }
+            if(elem.value.length > 11){
+                document.getElementById('box').innerText="plz enter only 10 digit";
+            }else{
+                document.getElementById('box');
+            }
+        }
+    </script>
+</body>
+</html>

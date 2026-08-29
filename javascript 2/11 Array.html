@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+
+    <h1 id="btn"></h1>
+    <button onclick="sort()">sort</button>
+    <button onclick="reverse()">reverse</button>
+    <button onclick="pop()">pop</button>
+    <button onclick="push()">push</button>
+    <button onclick="shift()"> shift</button>
+    <button onclick="unshift()">unshift</button>
+    <button onclick="concate()">concate</button>
+        <button onclick="array()">Is Array</button>
+        <button onclick="index()">index</button>
+        <button onclick="includes()">inculdes</button>
+<script>
+        //                                         // Array 
+        // var a=["ali","wali","sajid","khan"];
+        // alert(a);
+        
+        //  var a=["ali","wali","sajid","khan"];
+        // alert(a[2]);
+
+        // var a=[
+        //     ["wali","saifoor","samood","masood","Ayub"],
+        //     ["saifoor","adil","amir","abid","arif"],
+        //     ["masood","saad","hasime"],
+        //     ["ayub","arslan","taib"],
+        // ];
+        // document.write(a[1][4]);
+
+
+        //                                                 // modifay array 
+        // var b=["hi","hello","welcome"];
+        // b[1]="english";
+        // document.write(b);                              
+        //                                                 // remove array
+        //  var a=["wali","saifoor","samood","masood","Ayub"];
+        //  delete a[2];
+        //  alert(a);
+                                                        //Methods of array
+         
+             var name=["wali","saifoor","samood","masood","Ayub"];
+             var demo =name;
+             document.getElementById('btn').innerText=demo;
+
+             function sort(){
+                    var a=["wali","saifoor","samood","masood","Ayub"];
+             a.sort();
+             document.getElementById('btn').innerHTML=a;
+
+             }
+
+             function reverse(){
+                var b =["wali","saifoor","samood","masood","Ayub"];
+                b.reverse();
+                document.getElementById('btn').innerHTML=b.reverse();
+             }
+
+           function pop(){
+               var name=["wali","saifoor","samood","masood","Ayub"];
+               var demo=name;
+               demo.pop();
+               document.getElementById('btn').innerHTML=demo;
+
+           }
+
+           function push(){
+             var name=["wali","saifoor","samood","masood","Ayub"];
+             var demo=name;
+             demo.push("ali");
+             document.getElementById('btn').innerHTML=demo;
+           }
+
+           function shift(){
+             var name=["wali","saifoor","samood","masood","Ayub"];
+             name.shift();
+             document.getElementById('btn').innerHTML=name;
+           }
+           
+
+           function unshift(){
+             var name=["wali","saifoor","samood","masood","Ayub"];
+             name.unshift("arslan");
+             document.getElementById("btn").innerHTML=name;
+           }
+
+           function concate(){
+             var name=["wali","saifoor","samood","masood","Ayub"];
+             var hello=["wali","saifoor","samood","masood","Ayub"];
+            var demo= name.concat(hello);
+             document.getElementById("btn").innerHTML=demo;
+           }
+
+
+           function array(){
+                 var name=["wali","saifoor","samood","masood","Ayub"];
+                 var demo = Array.isArray(name);
+                 alert(demo);
+           }
+
+           function index(){
+             var name=["wali","saifoor","samood","masood","Ayub"];
+             var demo= name.indexOf("saifoor");
+             alert(demo);
+           }
+
+            function includes(){
+             var name=["wali","saifoor","samood","masood","Ayub"];
+             var demo= name.includes("saifoor");
+             alert(demo);
+           }
+    </script>
+</html>

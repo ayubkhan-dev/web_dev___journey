@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+                            <!-- window screen object ?  -->
+    <button onclick="height()">window inner  height</button>
+    <button onclick="outheight()">window outer height</button>
+    <button onclick="width()">inner width</button>
+    <button onclick="outwidth()">outer width</button>
+                            
+
+<script>
+    function height(){
+        var a = window.innerHeight;
+        alert(a);
+    }
+    function outheight(){
+        var b = window.outerHeight;
+        alert(b);
+    }
+    function width(){
+        var c =window.innerWidth;
+        alert(c);   
+    }
+    function outwidth(){
+        var d = window.outerWidth;
+        alert(d);
+    }
+
+
+// var a = window.innerWidth;
+// document.write("innerwidth" + a);
+</script>
+</body>
+</html>

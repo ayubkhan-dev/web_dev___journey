@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- try and catch mean that when you mistake it does not show in consol it show where you select a place -->
+
+    <button id="hello">
+        click Me 
+    </button>
+    
+    <script>
+        document.getElementById('hello').addEventListener('click',function(){
+            try{
+                alertt("you clik the button");
+            }catch(error){
+                document.write(error);
+            }
+        })
+        // try{
+        //     confirmm("do you like our website");
+
+        // }catch(error){
+        //     document.write(error);
+        // }
+        // try {
+        //     alertf("ayub khan");
+            
+        // } catch (error) {
+        //     document.write(error);
+            
+        // }
+
+
+        // try{
+        //     promprt("enter your name");
+        // }
+        // catch(error){
+        //     document.write(error);
+        // }
+    </script>
+</body>
+</html>

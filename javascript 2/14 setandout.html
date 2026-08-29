@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="set()">setinterval</button>
+    <button onclick="hi()">clik</button>
+
+    <button onclick="timeout()">time out</button>
+    <button onclick="time()">cliked</button>
+    
+
+    <script>                      
+                                            // set interval 
+        // function set(){
+        //     setInterval(
+        //         function (){
+        //             alert("it show result continuslley  after 3 sec");
+        //         },
+        //         3000
+        //     )
+        // };
+
+    // function hi(){
+    //     setInterval(
+    //         function(){
+    //             alert("hello");
+    //         },
+    //         5000
+    //     )
+    // }
+
+
+                                                // set time out 
+        
+        function timeout(){
+            setTimeout(
+                function(){
+                    alert("it show result  after 2 sec");
+                },
+                2000
+            )
+        }
+
+        function time(){
+            setTimeout(
+                function(){
+                alert("it show result  after 3 sec");
+            },
+            1000);
+        }
+      
+    </script>
+</body>
+</html>

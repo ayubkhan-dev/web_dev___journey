@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="year()">year</button>
+    <input type="text" id="year" placeholder="show the date" readonly>
+    <button onclick="month()"> month</button>
+       <button onclick="second()"> second</button>
+       <button onclick="time()"> Time</button>
+       <h1 id="time"></h1>
+    
+    <script>
+        // var a=new Date();
+        // document.write(a.getSeconds() + "<br>");
+        //  document.write(a.getFullYear()+ "<br>");
+        // document.write(a.getDay()+ "<br>");
+        // document.write(a.getMonth()+ "<br>");
+        // document.write(a.getMilliseconds()+ "<br>");
+        // document.write(a.getMinutes()+ "<br>");
+
+        function year(){
+            var a=new Date().getFullYear();
+            document.getElementById('year').value=a;
+        }
+
+        function month(){
+           var b=new Date();
+           alert(b.getMonth());
+        }
+
+         function second(){
+           var b=new Date();
+           alert(b.getSeconds());
+        }
+
+          function time(){
+           var b=new Date().getTime();
+           document.getElementById('time').innerHTML=b
+           
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

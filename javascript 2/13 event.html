@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>              
+    <button onclick="cl()">click</button>
+    <button ondblclick="dbl()">double click</button>
+    <button oncontextmenu="right()"> Right click</button>
+    <button onmouseenter="enter()">Enter</button>
+    <button onmouseout="out()">Out</button>
+    <button onmouseleave="lave()">leave</button>
+
+
+    
+    <script>
+                            // types of operater 
+
+        // var a ="hello";
+        // document.write(typeof a + "<br>");
+        // var b =3;
+        // document.write(typeof b + "<br>") ;
+        // var c=true;
+        // document.write(typeof c + "<br>");
+        // var d= null ;
+        // document.write(typeof d + "<br>");
+        // var e = ["ali","khan","me"];
+        // document.write(typeof e + "<br>");
+        // var f={
+        //     name: "ayub",
+        //     father : "walikhan",
+        // };
+        // document.write(typeof f);
+
+
+                                        // EVENTS IN JAVASCRIPT 
+        function cl(){
+            alert("you clik the button");
+        }
+
+        function dbl(){
+            alert("you double click the button");
+        }
+        function right(){
+            alert ("you right click button");
+        }
+        function enter(){
+            alert("it is enter click button");
+        }
+        function out(){
+            alert("it is mouse out button");
+        }
+        function lave(){
+            alert ("it is mouse lave button");
+        }
+
+        document.addEventListener("keydown", function(){
+            alert("you down the key");
+        });
+
+        document.addEventListener("keypress",function(){
+            alert ("you prss the key");
+        });
+        document.addEventListener("keyup",function(){
+            alert ("key up pressed");
+        });
+    </script>
+</body>
+</html>

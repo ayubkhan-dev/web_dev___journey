@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* fieldset{
+        width: 200px;
+        align-self: center;
+ 
+    } */
+</style>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Login Form</legend>
+            <label for="">Name</label><br>
+            <input type="text" name="" id=""><br>
+
+            <label for="">Password</label><br>
+            <input type="password" name="" id="password"><br><br>
+
+            <button>login</button>
+            <button type="button" onclick="toggle(this)">show passsowrd</button>
+        </fieldset>
+    </form>
+
+
+    <script>
+        var global = document.getElementById('password');
+
+        function toggle(elem){
+            var a =global.getAttribute('type');
+            if(a === 'password'){
+                global.setAttribute('type','text');
+                elem.innerText = "Hide password";
+            }else{
+                global.setAttribute('type','password');
+                elem.innerText="show password";
+            }
+        }
+
+
+
+
+    //     var global = document.getElementById('password');
+    //    function toggle(elem){
+    //     var a =global.getAttribute('type');
+    //     if(a === 'password'){
+    //         global.setAttribute('type','text'); 
+    //         elem.innerText = "hide password";
+    //     }else{
+    //         global.setAttribute('type','password');
+    //         elem.innerText = "show password";
+    //     }
+        
+    //    }
+    </script>
+</body>
+</html>

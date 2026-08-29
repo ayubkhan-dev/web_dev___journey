@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     #box{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+    }
+</style>
+<body>
+    
+        <button onclick="start()">set intrval</button>
+        <button onclick="stop()">clear intrval</button>
+
+
+        <script>
+                                                // set interval 
+            var set;
+            function start(){
+                set = setInterval(function(){
+                    alert("set interval");
+                },3000);
+            }
+                                              //  clerar interval 
+            function stop(){
+                clearInterval(set);
+                alert("stop");
+            }
+        </script>
+
+
+
+
+  <!-- <div id="box"></div>
+    <button onclick="stop()">stop</button>
+
+    <script>
+        var a =0;
+        setInterval(ayub,1000);
+        function ayub(){
+            a=a+100;
+            var target = document.getElementById('box');
+            target.style.marginLeft=a+ "px";
+        }
+
+        
+    </script> -->
+</body>
+</html>

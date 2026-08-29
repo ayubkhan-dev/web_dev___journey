@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="name" id="first">
+    <select name="" id="operater">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="number" name="" id="second">
+    
+    <button onclick="ali()">
+        calucate
+    </button>
+
+    <input type="text" name="" id="result" readonly>
+</body>
+
+    <script>
+            function ali() {
+                var input1 = document.getElementById('first').value;
+                var input2 = document.getElementById('second').value;
+                var opr = document.getElementById('operater').value;
+                if(opr == '+'){
+                    var res = parseInt(input1) + parseInt(input2);
+                }
+                else if(opr == '-'){
+                     var res = parseInt(input1) - parseInt(input2);
+                }
+                else if(opr == '*'){
+                     var res = parseInt(input1) * parseInt(input2);
+                }
+                 else if(opr == '/'){
+                     var res = parseInt(input1) / parseInt(input2);
+                }
+                else if(opr == '%'){
+                     var res = parseInt(input1) % parseInt(input2);
+                }
+                
+                document.getElementById('result').value=res;
+            }
+    </script>
+</html>

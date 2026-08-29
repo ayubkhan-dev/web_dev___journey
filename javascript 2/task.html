@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="showtime()">
+    <!-- <h1></h1>
+    <script>
+        function showtime(){
+            var d=new Date();
+            var h=d.getHours();
+            var m=d.getMinutes();
+            var s=d.getSeconds();
+            var section= "AM";
+
+            h=h<10 ? "0"+h:h;
+            m=m<10 ? "0"+m:m;
+            s=s<10 ? "0"+s:s;
+
+            if(h>12){
+                h=h-12;
+            }
+            if(h>=12){
+                section="PM"
+            }
+
+
+
+            var result=h + ":" + m + ":" + s  + section;
+            document.getElementsByTagName('h1')[0].innerText=result;
+            setTimeout(showtime,1000);
+        }
+    </script> -->
+
+
+
+
+    <input type="text" name="" id="input1" placeholder="enter first value">
+
+    <select name="" id="operater">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+
+    <input type="text" name="" id="input2" placeholder="enter 2nd value">
+    <button onclick="cal()">calcute</button>
+    <input type="text" name="" id="result" placeholder="Result" readonly>
+
+    <script>
+        function cal(){
+            var a = document.getElementById('input1').value;
+            var b = document.getElementById('input2').value;
+            var c = document.getElementById('operater').value;
+            if(c == '+'){
+                var res = parseInt(a) + parseInt(b);
+            }
+            if(c == '-'){
+                var res = parseInt(a) - parseInt(b);
+            }
+             if(c == '*'){
+                var res = parseInt(a) * parseInt(b);
+            }
+             if(c == '/'){
+                var res = parseInt(a) / parseInt(b);
+            }
+             if(c == '%'){
+                var res = parseInt(a) % parseInt(b);
+            }
+
+            document.getElementById('result').value=res;
+
+
+
+
+        }
+
+    </script>
+   
+
+
+
+
+</body>
+</html>

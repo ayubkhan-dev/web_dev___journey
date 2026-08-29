@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .red{
+
+        background-color: red;
+    }
+    .blue{
+    background-color: blue;
+    }
+    .green{
+        background-color:rgb(249, 40, 176)
+    }
+    .white{
+        background-color: rgb(29, 30, 31);
+        color: white;
+    }
+    .gold{
+        background-color: gold;
+    }
+</style>
+<body>
+  <div id="test" class="red">hello eveyone!</div>
+  <button id="btn">click Me</button>
+  <div id="result"></div>
+
+    
+    <script>
+        document.getElementById('btn').addEventListener('click',function(){
+            var global = document.getElementById('test');
+            var a = global.getAttribute('class');
+            // document.getElementById('result').innerText=a;
+            if(a === "red"){
+                global.setAttribute("class","blue");
+            }else{
+                global.setAttribute("class","red");
+            }
+        });
+
+        // document.getElementById('btn').addEventListener('click',function(){
+        //     var global = document.getElementById('test');
+        //     var a = global.getAttribute('class');
+        //     // document.getElementById('result').innerText=a;
+        //     if(a === "red"){
+        //         global.setAttribute("class","blue");
+        //     }
+        //      else if(a === "blue"){
+        //         global.setAttribute("class","green");
+        //     }
+        //     else if(a === "green"){
+        //         global.setAttribute("class","white");
+        //     }
+        //     else if(a === "white"){
+        //         global.setAttribute("class","gold");
+        //     }
+        //     else{
+        //         global.setAttribute("clss","red");
+        //     }
+        // });
+    </script>
+</body>
+</html>
