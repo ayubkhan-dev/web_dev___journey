@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        border: 1px solid black;
+        width: 200px;
+        background-color: darkgray;
+        margin: auto;
+    }
+    #alert{
+        color: red;
+    }
+</style>
+<body>
+    <form action="" onsubmit=" return validation()">
+        <p>
+            <label for="">User Name</label><br>
+            <input type="text" name="" id="" required><br>
+        </p>
+
+        <p>
+            <label for="">password</label><br>
+            <input type="password" name="" id="passsword"><br>
+        </p>
+
+         <p>
+            <label for="">confirm_password</label><br>
+            <input type="password" name="" id="confirm" onkeyup="check(this)"><br><br>
+            <p id="alert"></p>
+        </p>
+
+
+        <button>submit</button>
+
+    </form>
+
+    <script>
+        var passsowrd = document.getElementById('password');
+        var flag =1;
+
+        function check(elem){
+            if(elem.value.length > 0){
+                if(elem.value != passsword.value){
+                    document.getElementById('alert').innerText="password does not match";
+                    flag =  0;
+
+                }else{
+                     document.getElementById('alert').innerText="";
+                     flag =  1;
+                }
+                
+            }else{
+                 document.getElementById('alert').innerText="plz enter some thing";
+                 flag = 0;
+            }
+        }
+
+        function validation(){
+            if(flag === 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+    </script>
+</body>
+</html>
