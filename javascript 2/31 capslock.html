@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     form{
+        border: 1px solid black;
+        width: 200px;
+        background-color: darkgray;
+        margin: auto;
+    }
+
+    #alert{
+        color: red;
+    }
+</style>
+<body>
+    
+<form action="">
+    <p>
+        <label for="">Name</label>
+        <input type="text" name="" id="">
+    </p>
+
+
+    <p>
+        <label for="">password</label>
+        <input type="password" name="" id="" autocomplete="off">
+    </p>
+
+    <p>
+        <label for="">confirm_password</label>
+        <input type="password" autocomplete="off">
+    </p>
+
+    <div id="alert"></div>
+
+    <button type="button">submit</button>
+</form>
+
+<script>
+    window.addEventListener('keyup', event =>{
+        var iscaps = (event.getModifierState('CapsLock'));
+        if(iscaps){
+            //true
+            document.getElementById('alert').innerText = "Warning capslock is on";
+        }
+        else{
+            //false
+            document.getElementById('alert').innerText = "";
+        };
+    });
+</script>
+</body>
+</html>
