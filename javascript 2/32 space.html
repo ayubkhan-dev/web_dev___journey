@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        width: 200px;
+        height: 100px;
+        background-color: aqua;
+        margin: auto;
+        margin-top: 100px;
+    }
+    #div{
+color: red;
+    }
+</style>
+<body>
+
+                                                    <!-- space is not allow in user name  -->
+    <form action="">
+        <label for="">
+            <label for="">Name</label>
+            <input type="text" name="" id="" onkeyup="white(this.value)">
+            <div id="div"></div>
+            <button type="button">submit</button>
+        </label>
+    </form>
+
+     <script>
+        var pattran = /\s/g;
+        function white(data){
+            var space = pattran.test(data);
+            if(space){
+                document.getElementById('div').innerText = "space is not allow";
+            }else{
+                document.getElementById('div').innerText = "";
+            }
+        }
+    </script>
+
+   
+</body>
+</html>
