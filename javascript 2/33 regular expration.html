@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+                                            <!-- Regulal expration is a pattren to check condation  -->
+    <script>
+      var pattren = /[0-9][a-z]/ig;
+      var str = "123ayub";
+      document.write(pattren.exec(str));
+
+
+       var pattren = /[0-9][a-z]/ig;
+      var str = "123ayub";
+      document.write(pattren.test(str));
+
+
+      var pattern = new RegExp('[0-9][a-z][A-Z]','ig');
+      console.log(pattern.toString())
+    </script>
+
+
+ 
+
+</body>
+</html>
