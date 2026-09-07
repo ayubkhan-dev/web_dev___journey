@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        width: 200px;
+        height: 320px;
+        background-color: aliceblue;
+        border: 1px solid black;
+
+    }
+    .password-check{
+        display: flex;
+        color: red;
+
+    }
+</style>
+<body>
+    <form action="">
+
+        <p>
+            <label for="">Name</label>
+            <input type="text" name="" id="" >
+        </p>
+
+        <p>
+            <label for="">password</label>
+            <input type="password" name="password" id="password" autocomplete="off" onkeyup="hello(this.value)">
+        </p>
+
+        <p>
+           <label for="" class="password-check">8 charater </label>
+           <label for="" class="password-check"> 1 Lower case</label>
+            <label for="" class="password-check"> 1 Upper case </label>
+           <label for="" class="password-check"> 1 speacial chrater</label>
+            <label for="" class="password-check"> 1 number </label>
+        </p>
+
+        <button type="button">submit</button>
+        
+        </form>
+
+        <script>
+            function hello(data){
+                var global =document.getElementsByClassName('password-check');  
+                const eight =  new RegExp('.{8,}');
+                const lowercase = new RegExp('[a-z]');
+                const uppercase = new RegExp('[A-Z]');
+                const spical = new RegExp('[@$!%*?&]');
+                const number = new RegExp('[0-9]');
+                
+               
+
+                if(eight.test(data)){
+                    global[0].style.color ="green";
+
+                }else{
+                    global[0].style.color = "red";
+                }
+                if(lowercase.test(data)){
+                    global[1].style.color = "green";
+                }else{
+                    global[1].style.color="red";
+                }
+                if(uppercase.test(data)){
+                    global[2].style.color="green";
+                }else{
+                    global[2].style.color="red";
+                }
+                if(spical.test(data)){
+                    global[3].style.color="green";
+                }else{
+                    global[3].style.color="red";
+                }
+                if(number.test(data)){
+                    global[4].style.color="green";
+                }
+                else{
+                    global[4].style.color="red";
+                }
+
+
+            }
+        </script>
+</body>
+</html>
