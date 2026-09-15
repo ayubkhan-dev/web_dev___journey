@@ -1,14 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 // import './index.css'
-import App from './App.jsx';
-import Ayub from './Ayub.jsx';
-import Hooks from './Hooks.jsx';
+import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <Ayub/>
-    <Hooks/>
   </StrictMode>,
 )
