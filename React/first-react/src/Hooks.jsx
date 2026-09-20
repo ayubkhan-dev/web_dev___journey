@@ -28,7 +28,7 @@ function Hooks(){
 
     return (
         <>
-        <h1>chia aur react ka course</h1>
+        <h1>counter in React</h1>
         <h2>counter value : {counter}</h2>
         <button onClick={addvalue}>Add value {counter}</button>
         <br />
