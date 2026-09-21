@@ -1,0 +1,22 @@
+h1{
+    font-weight: bold;
+    font-size: 700;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+
+input{
+    width: 100%;
+    
+}
+
+.item{
+    text-align: left;
+    margin: 10px;
+}
+
+button{
+    min-width: 80px;
+    align-content: end;
+}
