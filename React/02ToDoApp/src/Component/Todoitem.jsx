@@ -1,9 +1,9 @@
-function Todoitem1(){
+function Todoitem({todoName,todoDate}){
     return(
     <div className="container">
       <div className="row item ">
-      <div className="col-6">Buy Malik</div>
-      <div className="col-4">21/09/2026</div>
+      <div className="col-6">{todoName}</div>
+      <div className="col-4">{todoDate}</div>
       <div className="col-2">
         <button type=" button" className="btn btn-danger">Delete</button>
       </div>
@@ -12,4 +12,4 @@ function Todoitem1(){
     )
 
 }
-export default Todoitem1
+export default Todoitem

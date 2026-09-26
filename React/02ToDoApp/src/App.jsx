@@ -1,18 +1,36 @@
 import Todohead from "./Component/Todohead"
-import Todoitem1 from "./Component/Todoitem1"
-import Todoitem2 from "./Component/Todoitem2"
 import Todoname from "./Component/Todoname"
+import Todoitems from "./Component/Todoitems"
 import "./index.css"
 
 function App() {
+
+  const todoitems = [{
+    name : "Buy mailk",
+    Date: "21/09/2026",
+  },
+{
+    name : "Go to collage",
+    Date: "21/09/2026",
+  },
+{
+    name : "like this video",
+    Date: "right now",
+  },
+  {
+    name : "Ayub khan",
+    Date: "01/01/2026",
+  },
+
+];
 
   return (
 <>
 <center>
   <Todoname/>
   <Todohead/>
-  <Todoitem1/>
-  <Todoitem2/>
+  <Todoitems todoitems={todoitems}/>
+
 
 </center>
 </>
