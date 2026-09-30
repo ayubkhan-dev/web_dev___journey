@@ -1,9 +1,9 @@
 import styles from "./Display.module.css"
 
-function Display(){
+function Display({displayvalue}){
     return(
      <div className={styles.display}>
-        <input type="text" name="" id=""  placeholder="0"/></div>
+        <input type="text" name="" id="" value={displayvalue} readOnly/></div>
      );
 }
 export default Display
