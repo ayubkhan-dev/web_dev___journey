@@ -17,9 +17,9 @@
     <button onclick="shift()"> shift</button>
     <button onclick="unshift()">unshift</button>
     <button onclick="concate()">concate</button>
-        <button onclick="array()">Is Array</button>
-        <button onclick="index()">index</button>
-        <button onclick="includes()">inculdes</button>
+    <button onclick="array()">Is Array</button>
+    <button onclick="index()">index</button>
+    <button onclick="includes()">inculdes</button>
 <script>
         //                                         // Array 
         // var a=["ali","wali","sajid","khan"];
@@ -51,19 +51,22 @@
              var demo =name;
              document.getElementById('btn').innerText=demo;
 
+                                  //its work to assanding the array
              function sort(){
                     var a=["wali","saifoor","samood","masood","Ayub"];
              a.sort();
              document.getElementById('btn').innerHTML=a;
 
              }
-
+                                  // it work to desanding the array
              function reverse(){
                 var b =["wali","saifoor","samood","masood","Ayub"];
                 b.reverse();
                 document.getElementById('btn').innerHTML=b.reverse();
              }
+                      
 
+                            // it delate the last value of the array
            function pop(){
                var name=["wali","saifoor","samood","masood","Ayub"];
                var demo=name;
@@ -71,27 +74,27 @@
                document.getElementById('btn').innerHTML=demo;
 
            }
-
+                            //it add the last value of the arry
            function push(){
              var name=["wali","saifoor","samood","masood","Ayub"];
              var demo=name;
              demo.push("ali");
              document.getElementById('btn').innerHTML=demo;
            }
-
+                            // it delete the first value of the array
            function shift(){
              var name=["wali","saifoor","samood","masood","Ayub"];
              name.shift();
              document.getElementById('btn').innerHTML=name;
            }
            
-
+                                    // it add the first value of the array
            function unshift(){
              var name=["wali","saifoor","samood","masood","Ayub"];
              name.unshift("arslan");
              document.getElementById("btn").innerHTML=name;
            }
-
+                                      // to joine to or more array
            function concate(){
              var name=["wali","saifoor","samood","masood","Ayub"];
              var hello=["wali","saifoor","samood","masood","Ayub"];
@@ -99,19 +102,19 @@
              document.getElementById("btn").innerHTML=demo;
            }
 
-
+                              // to check is this is array
            function array(){
                  var name=["wali","saifoor","samood","masood","Ayub"];
                  var demo = Array.isArray(name);
                  alert(demo);
            }
-
+                              // to check the index of value
            function index(){
              var name=["wali","saifoor","samood","masood","Ayub"];
              var demo= name.indexOf("saifoor");
              alert(demo);
            }
-
+                                  // is this index is inculde in the array
             function includes(){
              var name=["wali","saifoor","samood","masood","Ayub"];
              var demo= name.includes("saifoor");
