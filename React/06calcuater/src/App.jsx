@@ -15,7 +15,7 @@ function App() {
       setCalval(result);
     }else{
       const newdisplayvalue = calval +buttonText;
-      setCalval(newdisplayvalue);
+      setCalval(newdisplayvalue); 
 
     }
   }
