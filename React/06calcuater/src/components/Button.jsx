@@ -8,6 +8,7 @@ function Button({onButtonClick}){
                     <button className={style.button} onClick={()=>onButtonClick(buttonName)}>{buttonName}</button>
 
             ))}
+            
      
     </div>
     );
