@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoIosAddCircle } from "react-icons/io";
 
 function Todohead({ onAdd }) {
   const [todoName, setTodoName] = useState("");
@@ -44,7 +45,7 @@ function Todohead({ onAdd }) {
             className="btn btn-success"
             onClick={handleAdd}
           >
-            Add
+            <IoIosAddCircle />  
           </button>
         </div>
 

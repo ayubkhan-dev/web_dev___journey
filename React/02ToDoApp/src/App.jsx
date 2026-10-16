@@ -4,24 +4,13 @@ import Todoitems from "./Component/Todoitems";
 import { useState } from "react";
 import "./index.css";
 
+
 function App() {
   const [todoitems, setTodoitems] = useState([
     {
       name: "Buy milk",
       Date: "21/09/2026",
-    },
-    {
-      name: "Go to college",
-      Date: "21/09/2026",
-    },
-    {
-      name: "Like this video",
-      Date: "right now",
-    },
-    {
-      name: "Ayub Khan",
-      Date: "01/01/2026",
-    },
+    }
   ]);
 
   // Add new todo
