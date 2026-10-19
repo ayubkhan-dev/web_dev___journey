@@ -1,12 +1,16 @@
-import Simpleform from "./simpleform"
+import Simpleform from './Simpleform'
+import Multiplehandling from './Multiplehandling'
+import Uncontrolformvailadion from './Uncontrolformvailaditon'
 
 function App() {
 
   return (
     <>
-    <Simpleform/>
     
-    </>
+  <Simpleform/>
+  <Multiplehandling/>
+  <Uncontrolformvailadion/>
+  </>
   )
 }
 
