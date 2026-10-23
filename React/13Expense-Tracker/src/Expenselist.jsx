@@ -1,10 +1,16 @@
 import Expenseitem from "./Expenseitem"
 
-function Expenselist(){
+function Expenselist({expenses,onDelete}){
+    if(expenses.length === 0){
+        return <p>No expenses is present yet</p>
+    }
     return(
          <div className="expense-list">
-        <Expenseitem/>
-       <div className="expense-item"><span>internet charge</span><span>$50</span><button>❌</button></div>
+            {expenses.map((item)=>(
+                  <Expenseitem key={item.id} item={item} onDelete = {onDelete}/>
+
+            ))}
+      
     </div>
 
     )
